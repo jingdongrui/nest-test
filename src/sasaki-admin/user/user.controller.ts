@@ -1,7 +1,8 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Req } from '@nestjs/common';
 import { UserService } from './user.service';
 
 import { User } from './user.interface';
+import { Request } from 'express';
 
 interface UserResponse<T = unknown> {
   code: number;
@@ -13,7 +14,7 @@ interface UserResponse<T = unknown> {
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('/weather')
+  @Get('/test')
   getHello(): any {
     // return this.userService.getWeather();
     return '978afds';
@@ -31,7 +32,8 @@ export class UserController {
 
   // GET /user/users
   @Post('login')
-  async login(): Promise<UserResponse<User[]>> {
+  async login(@Req() req: Request): Promise<any> {
+    console.log('qqqqqqqqqqqqqqqqqqq', req.body);
     return {
       code: 2000,
       data: await this.userService.login(),

@@ -8,7 +8,10 @@ import { MongooseModule } from '@nestjs/mongoose';
   imports: [
     SskModule,
     WoaijiModule,
-    MongooseModule.forRoot('mongodb://47.108.207.76/ssk'),
+    MongooseModule.forRoot(
+      'mongodb://root:41tqXcqDljUExnVh@47.108.207.76:27000',
+      { dbName: 'ssk' },
+    ),
   ],
 })
 export class AppModule {}

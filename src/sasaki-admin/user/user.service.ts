@@ -43,6 +43,7 @@ export class UserService {
   // 用户登录
   async login() {
     // const userInfo = await this.userModel.
-    return 1;
+    const users = await this.userModel.find({ username: 'test' });
+    return users;
   }
 }
